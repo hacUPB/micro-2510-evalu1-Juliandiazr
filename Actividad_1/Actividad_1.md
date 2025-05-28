@@ -95,7 +95,14 @@ A partir de un software como lo es el simulador Digital, lo que hacemos es simul
 
 ![Simulador digital](<Imagenes_Actividad_1/Computador de 16 bits.png>)
 
-Al ejecutarlo tenemos que 
+Al ejecutarlo tenemos el circuito del computador el cual vemos a simple vista el CPU y la Memoria, donde el funcionamiento consiste en que la señal del pc sale con una dirección que entra en la ROM y una vez allí procesa la dirección para dar la siguiente instrucción al computador.
+### Circuito de CPU
+
+![Circuito de CPU](<Imagenes_Actividad_1/CIRCUITO CPU.jpeg>)
+
+### Circuito de memoria
+
+![Circuito de Memoria](<Imagenes_Actividad_1/CIRCUITO DE MEMORIA.jpeg>)
 
 ## 3. CONCEPTO DE PROGRAMA
 
@@ -120,4 +127,21 @@ Para ponerlo claramente, en un ejemplo donde el programa ejecuta una suma:
 
 ```R1+R2```
 
-Donde el buscar sea que se encargue de buscar las variables r1 y r2. Donde el decodificar se que siga la instrucción del programa que es buscar las variables r1 y r2 realizar la operación Y por ultimo al ejecutar, realiza el programa donde nos pide las variables r1 y r2 y hace la operación
+Donde el buscar sea que se encargue de buscar las variables r1 y r2. Donde el decodificar se que siga la instrucción del programa que es buscar las variables r1 y r2 realizar la operación Y por ultimo al ejecutar, realiza el programa donde nos pide las variables r1 y r2 y hace la operación.
+
+## 5. Instrucciones tipo C 
+
+En este caso el procesador que estamos estudiando utiliza instrucciones tipo c, donde son complejas y pueden realizar variedad de operaciones y controlar el flujo de programa. Donde se caracterizan por tener 3 bits de mayor peso en 1.
+
+## Ejemplo
+
+Consideremos la instrucción 0xEC10, que se decodifica como D=A. Esta instrucción es de tipo C y realiza la siguiente operación: Operación: Lee el valor del registro A. Destino: Almacena el valor leído en el registro D. Salto: No se realiza ningún salto. En este caso, la CPU lee el valor del registro A y lo almacena en el registro D, lo que permite manipular y transferir datos entre registros de manera eficiente.
+
+## 6. Instruccione tipo C
+1. Instrucciones Aritméticas y Lógicas: Realizan operaciones matemáticas o lógicas. Ejemplo: ADD R1, R2, R3 suma los valores de R2 y R3 y guarda el resultado en R1.
+2. Instrucciones de Movimiento de Datos: Mueven datos entre registros o memoria. Ejemplo: MOV R1, #5 carga el valor 5 en R1.
+3. Instrucciones de Control de Flujo: Modifican el orden de ejecución, como saltos. Ejemplo: JMP 1000 salta a la dirección de memoria 1000.
+4. Instrucciones de Comparación: Comparan dos valores y ajustan las banderas del procesador. Ejemplo: CMP R1, R2 compara R1 con R2.
+5. Instrucciones de Entrada/Salida (I/O): Gestionan la comunicación con dispositivos externos. Ejemplo: IN R1, 0x01 lee un valor de un puerto de entrada y lo guarda en R1.
+
+## 7. Decodificación por parte de la CPU
