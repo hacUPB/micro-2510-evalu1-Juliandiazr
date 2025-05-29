@@ -1,0 +1,152 @@
+# Unidad 2
+
+## Ejercicio 1
+
+MEF de Antirrebote del Pulsador:
+
+Inicio Antirrebote: Estado inicial.
+
+Esperando Pulsador: La MEF espera a que el pulsador sea presionado.
+
+¿Tiempo de Rebote Expirado?: Una vez que el pulsador es presionado, se entra en este estado para esperar un breve período de tiempo (el tiempo de antirrebote) para asegurar que el rebote mecánico del pulsador ha terminado.
+
+Si el tiempo no ha expirado, vuelve a "Esperando Pulsador" (o se mantiene en un bucle interno hasta que expire el tiempo, dependiendo de la implementación).
+
+Si el tiempo ha expirado, se pasa a "Pulsador Establecido".
+
+Pulsador Establecido: En este estado, la MEF ha confirmado que el pulsador ha sido presionado de forma estable. Es desde aquí que se genera una "Señal de Pulsador Establecido" para la MEF de Control del LED.
+
+Pulsador Soltado: Después de detectar que el pulsador ha sido soltado, la MEF vuelve a "Esperando Pulsador" para detectar la próxima pulsación.
+
+MEF de Control del LED:
+
+Inicio Control LED: Estado inicial.
+
+LED_Apagado: El LED está apagado.
+
+LED_Encendido: El LED está encendido.
+
+Interconexión:
+
+La clave de este ejercicio es cómo la MEF de Antirrebote del Pulsador interactúa con la MEF de Control del LED.
+
+Cuando la MEF de Antirrebote alcanza el estado "Pulsador Establecido", genera una "Señal de Pulsador Establecido".
+
+Esta señal actúa como un evento para la MEF de Control del LED:
+
+Si la MEF de Control del LED está en "LED_Apagado" y recibe la "Señal de Pulsador Establecido", transiciona a "LED_Encendido".
+
+Si la MEF de Control del LED está en "LED_Encendido" y recibe la "Señal de Pulsador Establecido", transiciona de nuevo a "LED_Apagado".
+
+![!\[Diagrama de Flujo\](Unidad_2/Imagenes_Unidad_2/Diagrama de flujo 1.png)
+](<Imagenes_Unidad_2/Diagrama de flujo 1.png>)
+
+## Ejercicio 2
+
+En la siguiente imagen se muestra la tabla de transiciones:
+
+![Diagrama de flujo](<Imagenes_Unidad_2/Tabla de transiciones.png>)
+
+## Ejercicio 3 
+
+Diagrama de flujo:
+![Diagrama de flujo](<Imagenes_Unidad_2/Diagrama de estados 2.png>)
+
+Para este tipo de problema es más adecuada la maquina de tipo Mealy, debido a que las salidas dependen del estado actual y de las entradas.
+
+# Actividad 2
+
+## 1. ¿Cuáles son los lenguajes en los que se puede programar sistemas embebidos?
+
+Principalmente los lenguajes que se utilizan son:
+
+- C
+- C++
+- Assembly
+
+## 2. ¿Qué ventajas y desventajas tienen dichos lenguajes comparados con C?
+
+- C++: la principal ventaja es que tiene soporte para la programación orientada a objetos, y mejor modularidad, pero como desventaja hace un mayor consumo de recursos si no se usa con cuidado.
+
+- Assembly: La ventaja es que tiene máximo control sobre hardware y rendimiento, y su desventaja es que es dificil de mantener, dependiente del hardware, propenso a errores.
+
+## 3. ¿Existe un ranking de lenguajes para sistemas embebidos? Si lo hay, comparte un link a la página y escribe tus percepciones de este ranking.
+
+En el siguiente link está el ranking: https://skill--lync-com.translate.goog/blogs/most-popular-programming-languages-for-embedded-systems?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc&_x_tr_hist=true
+
+Lo que puedo observar es que este ranking refleja la evolución del desarrollo embebido, ya que la elección del lenguaje dependen de diferentes factores como lo son los recursos del sistema, la criticidad de la aplicación y la ecesidad de desarrollo rapido.
+
+## 4. Desarrollo de las macro
+
+1. Máscara a un registro
+```
+ #define SET_BITS(REG, MASK)   ((REG) |= (MASK))
+ ```
+
+2. Macro para verificar si un periférico está habilitado en el PCC
+
+```
+if (IS_PERIPHERAL_ENABLED(SIM->SCGC5, (1 << 13))) {
+    // Puerto E está habilitado
+}
+```
+3. Macro para alternar un bit en un registro
+
+```
+#define TOGGLE_BIT(REG, BIT_POS)   ((REG) ^= (1 << (BIT_POS)))
+```
+## 5. Desarrollo
+
+Se realizó la prueba del compilador en un codigo y se mostrarón los errores en clase.
+
+## 6. Errores de codigo
+
+1. el For del bucle infinito: debido a que el valor de i disminuye pero es debido a la condición lo cual siempre será verdadero
+
+2. For acceso invalido al error: Debido a que el arreglo array tiene los indices validos de 0 a 4, pero el bucle accede hasta i = 5 y genera un desbordamiento de memoria
+
+3. While - Bucle infinito por decrecimiento:
+el numero comienza en 10 y se incrementa continuamente, por lo que nunca será 0 y genera un bucle infinito
+
+4. Bucle infinito sin incremento: El contador nunca se incrementa, lo que genera que la condición siempre es verdadera generando un bucle infinito
+
+## 7. Codigo
+
+````
+#include <stdio.h>
+
+// Función para calcular el factorial de un número
+unsigned long long factorial(int n) {
+    if (n < 0) {
+        return 0;  // Factorial no definido para números negativos
+    }
+
+    unsigned long long resultado = 1;
+    for (int i = 1; i <= n; i++) {
+        resultado *= i;
+    }
+
+    return resultado;
+}
+
+int main() {
+    int numero;
+
+    printf("Ingresa un número: ");
+    scanf("%d", &numero);
+
+    unsigned long long resultado = factorial(numero);
+    printf("El factorial de %d es %llu\n", numero, resultado);
+
+    return 0;
+}
+````
+# Actividad 3
+
+Se desarrolló en clases.
+
+
+
+
+
+

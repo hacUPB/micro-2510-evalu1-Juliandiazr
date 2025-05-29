@@ -1,0 +1,106 @@
+# PREGUNTAS DE LA ACTIVIDAD 2
+
+Durante el desarrollo de este repositorio lo que se va a realizar es responder a las preguntas que están en el notion
+
+## 1. Que es y para qué sirve el mapa de memoria de un microprocesador?
+
+En este caso el mapa de memoria es la representación de como se organiza y distribuye la memoria de un sistema. Donde define las direcciones de memoria asignadas a diferentes componente ya sea la RAM, ROM, los periféricos y otros dispositivos. Donde su función es la siguiente:
+
+- Evita los conflictos: Lo que realiza es asignar las direcciones únicas a cada componente para evitar solapamientos.
+
+- Facilita a la programación: Los desarrolladores pueden acceder a los recursos de hardware de manera organizada y predecible.
+
+## 2. Preguntas en base a la figura 3.
+Conexión típica entre un microprocesador MC6802 y un chip de ROM MC6846.png
+
+![Conexión tipica](image.png)
+
+## a. ¿Cuántos pines del bus de direcciones del MC6802 se utilizan en esta conexión? ¿Cuáles son los nombres utilizados para representarlos? 
+
+ RTA: El MC6802 es un microprocesador de 8 bits con un bus de direcciones de 16 bits. Por lo tanto, utiliza 16 pines para el bus de direcciones. Los nombres de estos pines suelen ser A0 a A15, donde A0 es el bit menos significativo y A15 es el bit más significativo.
+
+## b. ¿De qué valor es la memoria total de almacenamiento del MC6846? Incluye los cálculos que realizaste. 
+
+ El MC6846 es un dispositivo que incluye memoria ROM, RAM y periféricos. 
+ 
+ Haciendo la suposición que:
+La ROM tiene una capacidad de 2 KB (2048 bytes).
+La RAM tiene una capacidad de 128 bytes.
+La memoria total de almacenamiento se calcula como:
+
+Memoria Total=ROM+RAM=2048bytes + 128bytes=2176 bytes
+
+Por lo tanto, la memoria total del MC6846 es de 2176 bytes.
+
+## c. ¿Cuántos bits ocupa cada dato al que se puede acceder en la memoria MC6846? ¿Cómo lo dedujiste?  
+
+El MC6846 guarda cada dato usando 1 byte, es decir, 8 bits.
+
+Esto se debe a que fue creado para funcionar con procesadores de 8 bits, como el MC6802, lo que significa que puede leer o escribir solo 8 bits a la vez. Su "camino de datos" (bus de datos) está hecho para manejar solo bloques de 8 bits, no más grandes.
+
+### 3. ¿Cuáles son las características más relevantes de la arquitectura von Neumann y Harvard?
+Arquitectura von Neumann:  
+
+1. Memoria única compartida
+Tanto datos como instrucciones están almacenados en la misma memoria.
+
+2. Unidad de control y procesamiento única
+Usa una sola Unidad Central de Procesamiento (CPU) que ejecuta las instrucciones paso a paso.
+
+2. Ejecución secuencial
+Las instrucciones se ejecutan una a una en orden, a menos que haya una instrucción de salto.
+
+3. Bus de datos compartido
+El mismo bus se usa para leer y escribir datos e instrucciones, lo que puede generar cuellos de botella (esto se llama "bottleneck de Von Neumann").
+
+4. Ciclo de búsqueda-ejecución (fetch-execute)
+La CPU sigue un ciclo: buscar la instrucción en memoria, decodificarla y luego ejecutarla.
+
+Arquitectura Harvard:
+
+1. Memoria separada para instrucciones y datos
+Hay dos memorias distintas: una para código (instrucciones) y otra para datos.
+
+2. Buses separados
+Usa buses diferentes para acceder a datos e instrucciones al mismo tiempo, lo que permite una ejecución más rápida.
+
+3. Mayor velocidad
+Al poder leer una instrucción y un dato simultáneamente, mejora el rendimiento frente a la arquitectura Von Neumann.
+
+4. Más segura y eficiente
+Separar datos e instrucciones evita errores como sobreescribir accidentalmente el código del programa.
+
+5. Usada en sistemas embebidos
+Es común en microcontroladores y sistemas que requieren eficiencia y rapidez (por ejemplo, AVR, PIC, etc.).
+
+## 4. Cúales son las características más relevantes de la arquitectura CISC y RISK?
+
+ La Arquitectura CISC, tiene las siguientes características:
+
+ - Contiene un conjunto de instrucciones complejas que pueden realizar múltiples operaciones en una sola instrucción.
+
+ - Las instrucciones son de longitud variable y pueden acceder directamente a la memoria.
+
+ - Requiere más hardware y es más dificil de optimizar, pero reduce la cantidad de instrucciones necesarias para aquellas tareas complejas.
+
+ La Arquitecturas RISC tiene las siguientes características:
+
+ - El conjunto de intrucciones es reducido y simple, donde las instrucciones realizan operaciones básicas 
+
+ - Las instrucciones son de longitud fija y se ejecutan en un solo ciclo de reloj 
+
+ - Es más facil de optimizar y consume menos energía pero a la vez requiere mas instrucciones para tareas más complejas.
+
+ ## 5. Cúal es tu opinión sobre los tipos de arquitectura que se observan en los microprocesadores?
+
+ Rta: Las arquitecturas de microprocesadores, como von Neumann, Harvard, CISC y RISC, tienen ventajas y desventajas dependiendo del contexto de uso.
+
+ La arquitectura von Neumann es más adecuada para sistemas generales debido a su simplicidad y bajo costo.
+
+La arquitectura Harvard es ideal para aplicaciones en tiempo real y sistemas embebidos, donde la eficiencia y el acceso rápido son críticos.
+
+La arquitectura CISC es útil en aplicaciones que requieren operaciones complejas con menos instrucciones, como en computadoras personales.
+
+La arquitectura RISC es preferida en dispositivos móviles y sistemas embebidos debido a su eficiencia energética y facilidad de optimización.
+
+Y es más de la aplicación que se va a realizar para poder elegir el tipo de arquitectura que se necesita.
