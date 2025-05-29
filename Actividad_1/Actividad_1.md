@@ -145,3 +145,26 @@ Consideremos la instrucción 0xEC10, que se decodifica como D=A. Esta instrucci�
 5. Instrucciones de Entrada/Salida (I/O): Gestionan la comunicación con dispositivos externos. Ejemplo: IN R1, 0x01 lee un valor de un puerto de entrada y lo guarda en R1.
 
 ## 7. Decodificación por parte de la CPU
+ 
+Para realizar la decodificación de una instrucción de la CPU se hace de la siguiente manera:
+
+## Recepción de la Instrucción:
+ La instrucción obtenida en el paso fetch se carga en el registro de instrucciones (IR).
+
+## Descomposición
+Para este proceso lo que se hace es que se divide en 3 partes:
+
+### 1. Opcode
+Es el codigo de operación que indica la acción a realizar.
+
+### 2. Operandos 
+
+Los datos o direcciones de memoria involucradas en la operación.
+
+## Decodificación 
+
+Es la unidad de control capaz de interpretar el opcode y también coordina la operación que se debe realizar, añadiendo que selecciona los registros o las direcciones de memoria que se utilizará.
+
+## Asignación de recursos
+
+Es donde se configuran los registros y los buses de datos según lo que la instrucción requiera para ejecutar la operación dada.
